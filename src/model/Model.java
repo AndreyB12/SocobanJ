@@ -2,8 +2,6 @@ package model;
 
 import controller.EventListener;
 
-import java.nio.file.Paths;
-
 /**
  * Created by butkoav on 19.01.2017.
  */
@@ -12,8 +10,8 @@ public class Model {
     private EventListener eventListener;
     private GameObjects gameObjects;
     private int currentLevel = 1;
-    private LevelLoader levelLoader =
-            new LevelLoader(Paths.get("./src/res/levels.txt"));
+    private LevelLoader levelLoader =new LevelLoaderR();
+          //  new LevelLoaderF(Paths.get("./src/resources/levels.txt"));
 
 
     public void setEventListener(EventListener eventListener) {
