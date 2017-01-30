@@ -15,10 +15,13 @@ public class View extends JFrame
     {
         this.controller = controller;
     }
-
+    private JTextArea textField = new JTextArea(4,500);
     public void init()
     {
         field = new Field(this);
+        textField.setEditable(false);
+        textField.setText("R - reset level \nN - next level\nP - previous level");
+        this.getContentPane().add(textField,"South");
         add(field);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
