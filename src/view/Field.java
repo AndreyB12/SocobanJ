@@ -15,53 +15,43 @@ import java.awt.event.KeyEvent;
 /**
  * Created by butkoav on 19.01.2017.
  */
-public class Field extends JPanel
-{
+public class Field extends JPanel {
     private View view;
     private EventListener eventListener;
 
-    public void setEventListener(EventListener eventListener)
-    {
+    public void setEventListener(EventListener eventListener) {
         this.eventListener = eventListener;
     }
 
-    public Field(View view)
-    {
+    public Field(View view) {
         this.view = view;
         addKeyListener(new KeyHandler());
         setFocusable(true);
     }
 
     @Override
-    public void paint(Graphics g)
-    {
+    public void paint(Graphics g) {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, getWidth(), getHeight());
 
         GameObjects gos = view.getGameObjects();
         if (gos == null) return;
-        for (GameObject go : gos.getWalls())
-        {
+        for (GameObject go : gos.getWalls()) {
             go.draw(g);
         }
-        for (GameObject go : gos.getBoxes())
-        {
+        for (GameObject go : gos.getBoxes()) {
             go.draw(g);
         }
-        for (GameObject go : gos.getHomes())
-        {
+        for (GameObject go : gos.getHomes()) {
             go.draw(g);
         }
         gos.getPlayer().draw(g);
     }
 
-    public class KeyHandler extends KeyAdapter
-    {
+    public class KeyHandler extends KeyAdapter {
         @Override
-        public void keyPressed(KeyEvent e)
-        {
-            switch (e.getKeyCode())
-            {
+        public void keyPressed(KeyEvent e) {
+            switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
                     eventListener.move(Direction.LEFT);
                     break;
@@ -79,6 +69,9 @@ public class Field extends JPanel
                     break;
                 case KeyEvent.VK_N:
                     eventListener.startNextLevel();
+                    break;
+                case KeyEvent.VK_P:
+                    eventListener.startPrevLevel();
                     break;
             }
         }

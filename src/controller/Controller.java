@@ -56,6 +56,12 @@ public class Controller implements EventListener
         view.completed(level);
     }
 
+    @Override
+    public void startPrevLevel() {
+        model.startPrevLevel();
+        view.update();
+    }
+
     public GameObjects getGameObjects()
     {
         return model.getGameObjects();

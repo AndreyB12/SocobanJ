@@ -16,4 +16,5 @@ public interface EventListener
     void levelCompleted(int level);
 
 
+    void startPrevLevel();
 }
