@@ -105,7 +105,8 @@ public class Model {
     }
 
     public void startPrevLevel() {
-        restartLevel(--currentLevel);
+        if (currentLevel > 1)
+            restartLevel(--currentLevel);
 
     }
 }
